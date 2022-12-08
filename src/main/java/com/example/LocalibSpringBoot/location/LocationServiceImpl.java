@@ -33,9 +33,6 @@ public class LocationServiceImpl implements LocationService{
 
     @Override
     public Location  save(Location entity) {
-//        String id;
-        Vehicule vehicule = this.vehiculeService.findById(entity.getId());
-
         if (entity.getDateDebut().isAfter(entity.getDateFin())|| entity.getVehicule().getDisponibilite()
               .equals(Disponibilite.Indisponible) || entity.getDateFin().isBefore(LocalDate.now()) ) {
             logger.info("La date de debut de location est invalide: " + entity.getDateDebut() +
@@ -49,7 +46,6 @@ public class LocationServiceImpl implements LocationService{
                             " ou bien la date de debut de location est deja passé: absurde!!");
         }else{
             return this.locationRepository.save(entity);
-//            vehicule.setDisponibilite(Disponibilite.Indisponible);
         }
       }
 
