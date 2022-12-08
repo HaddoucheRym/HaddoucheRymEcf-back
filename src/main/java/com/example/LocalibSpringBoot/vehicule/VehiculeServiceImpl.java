@@ -18,19 +18,19 @@ public class VehiculeServiceImpl implements VehiculeService{
 
     @Override
     public List<Vehicule> findAll() {
-        return vehiculeRepository.findAll();
+        return this.vehiculeRepository.findAll();
     }
 
 
     @Override
     public Vehicule  save(Vehicule entity) {
-        return vehiculeRepository.save(entity);
+        return this.vehiculeRepository.save(entity);
     }
 
 
     @Override
     public Vehicule findById(String id) {
-        return vehiculeRepository.findById(id).orElseThrow(() ->{
+        return this.vehiculeRepository.findById(id).orElseThrow(() ->{
             logger.warn("findByIdInvalide: "+ id);
             return  new ResponseStatusException(HttpStatus.NOT_FOUND);
         });
@@ -39,6 +39,6 @@ public class VehiculeServiceImpl implements VehiculeService{
 
     @Override
     public void deleteById(String id) {
-        vehiculeRepository.deleteById(id);
+        this.vehiculeRepository.deleteById(id);
     }
 }
