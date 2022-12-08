@@ -16,21 +16,20 @@ public class LocataireServiceImpl implements LocataireService{
         this.locataireRepository = locataireRepository;
     }
 
-
-
     @Override
     public List<Locataire> findAll() {
-        return locataireRepository.findAll();
+        return this.locataireRepository.findAll();
     }
-
-
 
     @Override
-    public Locataire  save(Locataire entity) {
-        return locataireRepository.save(entity);
+    public Locataire save(Locataire entity) {
+        if (entity.getAge() < 18) {
+            logger.info("age de locataire est invalide: " + entity.getAge() + " ans");
+            throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE,
+                    "le locataire n'est pas majeur");
+        }
+        return  this.locataireRepository.save(entity);
     }
-
-
 
     @Override
     public Locataire findById(String id) {
@@ -40,10 +39,30 @@ public class LocataireServiceImpl implements LocataireService{
         });
     }
 
+    @Override
+    public void deleteById(String id) {
+        this.locataireRepository.deleteById(id);
+    }
 
 
     @Override
-    public void deleteById(String id) {
-        locataireRepository.deleteById(id);
+    public List<Locataire> findByName(String name) {
+        return this.locataireRepository.findByName(name);
+    }
+
+    @Override
+    public List<Locataire> findByUsername(String username) {
+        return this.locataireRepository.findByUsername(username);
+    }
+
+    @Override
+    public List<Locataire> findByEmail(String email) {
+        return this.locataireRepository.findByEmail(email);
+    }
+
+
+    @Override
+    public List<Locataire> findByPhone(String phone) {
+        return this.locataireRepository.findByPhone(phone);
     }
 }

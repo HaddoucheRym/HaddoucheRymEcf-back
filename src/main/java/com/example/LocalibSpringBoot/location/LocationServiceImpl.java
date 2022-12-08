@@ -1,5 +1,6 @@
 package com.example.LocalibSpringBoot.location;
 
+import com.example.LocalibSpringBoot.locataire.Locataire;
 import com.example.LocalibSpringBoot.vehicule.VehiculeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -49,4 +50,6 @@ public class LocationServiceImpl implements LocationService{
     public void deleteById(String id) {
         this.locationRepository.deleteById(id);
     }
+
+
 }

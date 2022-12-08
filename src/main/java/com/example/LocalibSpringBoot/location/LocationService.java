@@ -1,5 +1,7 @@
 package com.example.LocalibSpringBoot.location;
 
+import com.example.LocalibSpringBoot.locataire.Locataire;
+
 import java.util.List;
 
 public interface LocationService {
@@ -32,4 +34,6 @@ public interface LocationService {
      * @param id du location à supprimer
      */
     void deleteById(String id);
+
+
 }

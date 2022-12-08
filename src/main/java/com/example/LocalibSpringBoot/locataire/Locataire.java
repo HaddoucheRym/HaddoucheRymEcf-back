@@ -8,6 +8,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 @Data
 @Document
@@ -23,4 +24,13 @@ public class Locataire {
     private LocalDate date;
     private String email;
     private String phone;
+
+    /**
+     * methode qui permet de calculer l'age du locataire
+     * @return age de l'ocataire en integer
+     */
+    public Integer getAge() {
+        LocalDate currentDate = LocalDate.now();
+        return (int) ChronoUnit.YEARS.between(this.date,currentDate);
+    }
 }
