@@ -26,19 +26,9 @@ public class Location {
 
     @Id
     private String id;
-
-
-//    @JsonFormat(shape=JsonFormat.Shape.STRING)
-//@JsonDeserialize(using = LocalDateDeserializer.class)
-//@JsonSerialize(using = LocalDateSerializer.class)
-   @JsonFormat(pattern = "yyyy/MM/dd")
+   @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateDebut;
-
-
-//    @JsonFormat(shape=JsonFormat.Shape.STRING)
-//    @JsonDeserialize(using = LocalDateDeserializer.class)
-//    @JsonSerialize(using = LocalDateSerializer.class)
-    @JsonFormat(pattern = "yyyy/MM/dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateFin;
 
     @DBRef

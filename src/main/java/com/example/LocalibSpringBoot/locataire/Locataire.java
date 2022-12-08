@@ -20,8 +20,8 @@ public class Locataire {
     private String id;
     private String name;
     private String username;
-    @JsonFormat(pattern = "yyyy/MM/dd")
-    private LocalDate date;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate date = LocalDate.now();
     private String email;
     private String phone;
 
