@@ -4,6 +4,9 @@ import com.example.LocalibSpringBoot.locataire.Locataire;
 import com.example.LocalibSpringBoot.vehicule.Vehicule;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,6 +15,7 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
 @Data
@@ -22,13 +26,19 @@ public class Location {
 
     @Id
     private String id;
-    @JsonDeserialize(as = LocalDate.class)
 
-    @JsonFormat(shape=JsonFormat.Shape.STRING)
+
+//    @JsonFormat(shape=JsonFormat.Shape.STRING)
+//@JsonDeserialize(using = LocalDateDeserializer.class)
+//@JsonSerialize(using = LocalDateSerializer.class)
+   @JsonFormat(pattern = "yyyy/MM/dd")
     private LocalDate dateDebut;
-    @JsonDeserialize(as = LocalDate.class)
 
-    @JsonFormat(shape=JsonFormat.Shape.STRING)
+
+//    @JsonFormat(shape=JsonFormat.Shape.STRING)
+//    @JsonDeserialize(using = LocalDateDeserializer.class)
+//    @JsonSerialize(using = LocalDateSerializer.class)
+    @JsonFormat(pattern = "yyyy/MM/dd")
     private LocalDate dateFin;
 
     @DBRef

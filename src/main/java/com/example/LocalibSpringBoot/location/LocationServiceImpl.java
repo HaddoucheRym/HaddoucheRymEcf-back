@@ -1,6 +1,7 @@
 package com.example.LocalibSpringBoot.location;
 
 import com.example.LocalibSpringBoot.vehicule.Disponibilite;
+import com.example.LocalibSpringBoot.vehicule.Vehicule;
 import com.example.LocalibSpringBoot.vehicule.VehiculeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,7 +33,9 @@ public class LocationServiceImpl implements LocationService{
 
     @Override
     public Location  save(Location entity) {
-        System.out.println(entity.getDateDebut());
+//        String id;
+        Vehicule vehicule = this.vehiculeService.findById(entity.getId());
+
         if (entity.getDateDebut().isAfter(entity.getDateFin())|| entity.getVehicule().getDisponibilite()
               .equals(Disponibilite.Indisponible) || entity.getDateFin().isBefore(LocalDate.now()) ) {
             logger.info("La date de debut de location est invalide: " + entity.getDateDebut() +
@@ -44,11 +47,11 @@ public class LocationServiceImpl implements LocationService{
                     "La date de debut de location est superieure à la date de fin de location" +
                             " ou bien le vehicule est indisponible" +
                             " ou bien la date de debut de location est deja passé: absurde!!");
-        }else  return this.locationRepository.save(entity);
-//        entity.getVehicule().setDisponibilite(Disponibilite.Indisponible);
-
-
-    }
+        }else{
+            return this.locationRepository.save(entity);
+//            vehicule.setDisponibilite(Disponibilite.Indisponible);
+        }
+      }
 
     @Override
     public Location findById(String id) {
