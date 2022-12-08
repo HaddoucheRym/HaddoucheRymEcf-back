@@ -14,7 +14,7 @@ public interface VehiculeService {
      * Sauvegarde ou remplace un vehicule
      * si l'entity contient un id, elle remplacera les valeurs deja presantes;
      * sinon elle se sauvegardera
-     * @param entity vehicule a sauvegarderou modifier
+     * @param entity vehicule a sauvegarder ou modifier
      * @return entity dans l'etat de sauvegarde
      */
     Vehicule save(Vehicule entity);
