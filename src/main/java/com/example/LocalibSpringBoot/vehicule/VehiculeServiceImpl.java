@@ -36,9 +36,33 @@ public class VehiculeServiceImpl implements VehiculeService{
         });
     }
 
-
     @Override
     public void deleteById(String id) {
         this.vehiculeRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Vehicule> findByMarque(String marque) {
+        return this.vehiculeRepository.findByMarque(marque);
+    }
+
+    @Override
+    public List<Vehicule> findByModel(String model) {
+        return this.vehiculeRepository.findByModel(model);
+    }
+
+    @Override
+    public List<Vehicule> findByImmatriculation(String immatriculation) {
+        return this.vehiculeRepository.findByImmatriculation(immatriculation);
+    }
+
+    @Override
+    public List<Vehicule> findByDisponibilite(Disponibilite disponibilite) {
+        return this.vehiculeRepository.findByDisponibilite(disponibilite);
+    }
+
+    @Override
+    public List<Vehicule> findByTypeVehicule(TypeVehicule typeVehicule) {
+        return this.vehiculeRepository.findByTypeVehicule(typeVehicule);
     }
 }
