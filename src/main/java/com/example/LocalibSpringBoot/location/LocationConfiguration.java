@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 public class LocationConfiguration {
 
     @Bean
-    public LocationService locationService(LocationRepository locationRepository) {
-        return new LocationServiceImpl(locationRepository);
+    public LocationService locationService(LocationRepository locationRepository, VehiculeService vehiculeService) {
+        return new LocationServiceImpl(locationRepository, vehiculeService);
     }
 }

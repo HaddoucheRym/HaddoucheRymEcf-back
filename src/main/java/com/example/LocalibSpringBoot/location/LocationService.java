@@ -13,7 +13,8 @@ public interface LocationService {
     List<Location> findAll();
 
     /**
-     * Sauvegarde ou remplace une location
+     * Sauvegarde ou remplace une location dont le vehicule est disponible
+     * et la date de debut de location est inferieure à la date de fin de location
      * si l'entity contient un id, elle remplacera les valeurs deja presantes;
      * sinon elle se sauvegardera
      * @param entity location a sauvegarder ou modifier

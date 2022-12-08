@@ -22,4 +22,4 @@ Pour lancer l'application, il faut se placer dans le dossier racine et lancer la
 - ./gradlew spring-boot:run
 
 ### Lancement de l'application avec IntelliJ
-pour lancer l'application avec un IDE, lancer la class MycomApplication
+pour lancer l'application avec un IDE, lancer la class LocalibSpringBootApplication

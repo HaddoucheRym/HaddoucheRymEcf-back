@@ -67,4 +67,20 @@ public interface VehiculeService {
      * @return List<Vehicule>
      */
     List<Vehicule> findByTypeVehicule(TypeVehicule typeVehicule);
+
+    /**
+     * methode qui permet de trouver tous les vehicules dont leurs prix journalier de location
+     * est superieur ou egale a prix donné
+     * @param prix double, prix des vehicules recherchées
+     * @return List<Vehicule>
+     */
+    List<Vehicule> findAllVehiculePrixGreaterThan( double prix);
+
+    /**
+     * methode qui permet de trouver tous les vehicules dont leurs prix journalier de location
+     * est inferieur ou egale a prix donné
+     * @param prix double, prix des vehicules recherchées
+     * @return List<Vehicule>
+     */
+    List<Vehicule> findAllVehiculePrixLessThan( double prix);
 }

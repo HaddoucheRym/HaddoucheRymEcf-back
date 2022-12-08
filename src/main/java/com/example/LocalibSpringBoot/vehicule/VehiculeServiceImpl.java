@@ -65,4 +65,15 @@ public class VehiculeServiceImpl implements VehiculeService{
     public List<Vehicule> findByTypeVehicule(TypeVehicule typeVehicule) {
         return this.vehiculeRepository.findByTypeVehicule(typeVehicule);
     }
+
+    @Override
+    public List<Vehicule> findAllVehiculePrixGreaterThan(double prix) {
+        return this.vehiculeRepository.findAllVehiculePrixGreaterThan(prix);
+    }
+
+
+    @Override
+    public List<Vehicule> findAllVehiculePrixLessThan(double prix) {
+        return this.vehiculeRepository.findAllVehiculePrixLessThan(prix);
+    }
 }

@@ -69,4 +69,14 @@ public class VehiculeController {
     public List<Vehicule> findByTypeVehicule(@PathVariable TypeVehicule typeVehicule) {
         return this.vehiculeService.findByTypeVehicule(typeVehicule);
     }
+
+    @GetMapping("prixSup")
+    public List<Vehicule> findAllVehiculePrixGreaterThan(@RequestParam double prix) {
+        return this.vehiculeService.findAllVehiculePrixGreaterThan(prix);
+    }
+
+    @GetMapping("prixInf")
+    public List<Vehicule> findAllVehiculePrixLessThan(@RequestParam double prix) {
+        return this.vehiculeService.findAllVehiculePrixLessThan(prix);
+    }
 }
